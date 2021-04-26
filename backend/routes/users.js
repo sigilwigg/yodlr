@@ -5,8 +5,6 @@ const User = require('../models/user');
 
 
 // ----- [///// ROUTES /////] -----
-/* Create a new user ******* MOVE TO AUTH*/
-
 /* Get a specific user by id */
 router.get('/:id', async function (req, res, next) {
     try {
@@ -50,3 +48,4 @@ router.delete('/:id', async function (req, res, next) {
 });
 
 // ----- [///// EXPORTS /////] -----
+module.exports = router;

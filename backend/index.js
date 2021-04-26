@@ -8,6 +8,7 @@ const logger = require('./lib/logger');
 
 const { NotFoundError } = require('./expressError');
 
+const authRoutes = require('./routes/auth');
 const users = require('./routes/users');
 
 
@@ -21,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // ----- [///// ROUTES /////] -----
+app.use('/auth', authRoutes);
 app.use('/users', users);
 
 

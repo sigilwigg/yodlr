@@ -1,15 +1,44 @@
 // ----- [///// DEPENDENCIES /////] -----
+const bcrypt = require('bcrypt');
 const _ = require('lodash');
 const logger = require('../lib/logger');
 const log = logger();
 const users = require('../init_data.json').data;
 let curId = _.size(users);
 
-const { BadRequestError, NotFoundError } = require("../expressError");
+const { BadRequestError, NotFoundError, UnauthorizedError } = require("../expressError");
+const { BCRYPT_WORK_FACTOR } = require('../config.js');
 
 
 // ----- [///// CLASS /////] -----
 class User {
+    /* Register a new user */
+    static async register(user) {
+        user.id = curId++;
+        if (!user.state) user.state = 'pending';
+        if (!user.isAdmin) user.isAdmin = false;
+
+        const hashedPassword = await bcrypt.hash(user.password, BCRYPT_WORK_FACTOR);
+        user.password = hashedPassword;
+
+        users[user.id] = user;
+        log.info('Created user', user);
+        return user;
+    }
+
+    /* Verify user login */
+    static async authenticate(id, password) {
+        let user = users[id];
+        if (!user) throw new NotFoundError();
+
+        const isValid = await bcrypt.compare(password, user.password);
+        if (isValid === true) {
+            return user;
+        }
+
+        throw new UnauthorizedError("Invalid id/password");
+    }
+
     /* Get a specific user by id */
     static async get(id) {
         let user = users[id];
