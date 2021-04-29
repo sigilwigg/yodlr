@@ -1,9 +1,14 @@
 // ----- [///// DEPENDENCIES /////] -----
 const express = require('express');
 const router = express.Router();
+const jsonschema = require("jsonschema");
 const User = require('../models/user');
 
 const { createToken } = require('../helpers/tokens');
+const { BadRequestError } = require('../expressError');
+
+const userLoginSchema = require('../schemas/userLogin.json');
+const userRegisterSchema = require('../schemas/userRegister.json');
 
 
 // ----- [///// ROUTES /////] -----
@@ -11,6 +16,11 @@ const { createToken } = require('../helpers/tokens');
 router.post('/register', async function (req, res, next) {
     try {
         // validation
+        const validator = jsonschema.validate(req.body, userRegisterSchema);
+        if (!validator.valid) {
+            const errs = validator.errors.map(e => e.stack);
+            throw new BadRequestError(errs);
+        }
 
         // register with validated data
         let newUserData = req.body;
@@ -26,6 +36,11 @@ router.post('/register', async function (req, res, next) {
 router.post('/login', async function (req, res, next) {
     try {
         // validation
+        const validator = jsonschema.validate(req.body, userLoginSchema);
+        if (!validator.valid) {
+            const errs = validator.errors.map(e => e.stack);
+            throw new BadRequestError(errs);
+        }
 
         // login with validated data
         let { id, password } = req.body;

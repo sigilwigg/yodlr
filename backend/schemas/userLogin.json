@@ -1,0 +1,18 @@
+{
+    "$schema": "",
+    "$id": "",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "integer"
+        },
+        "password": {
+            "type": "string"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "id",
+        "password"
+    ]
+}
