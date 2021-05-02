@@ -5,6 +5,7 @@ import ProtectedRoute from './ProtectedRoute';
 import Signup from './components/Signup';
 import Signin from './components/Signin';
 import Home from './components/Home';
+import Welcome from './components/Welcome';
 
 function Routes() {
     return (
@@ -16,3 +17,5 @@ function Routes() {
         </Switch>
     )
 }
+
+export default Routes;

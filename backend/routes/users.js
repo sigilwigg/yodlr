@@ -26,7 +26,7 @@ router.get('/', async function (req, res, next) {
 });
 
 /* Update a user by id */
-router.put('/:id', async function (req, res, next) {
+router.patch('/:id', async function (req, res, next) {
     try {
         const user = req.body;
         const updatedUser = await User.update(user, req.params.id)

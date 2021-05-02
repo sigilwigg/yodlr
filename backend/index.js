@@ -5,6 +5,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const logger = require('./lib/logger');
+const cors = require('cors');
 
 const { NotFoundError } = require('./expressError');
 
@@ -15,6 +16,7 @@ const users = require('./routes/users');
 // ----- [///// CONFIG /////] -----
 const app = express();
 const log = logger(app);
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -45,7 +47,7 @@ app.use(function (err, req, res, next) {
 
 // ----- [///// INITIALIZE SERVER /////] -----
 /** Server Config */
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 
 /** Start Server */
 const server = app.listen(app.get('port'), function () {

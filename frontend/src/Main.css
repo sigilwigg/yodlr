@@ -1,0 +1,107 @@
+.Welcome-Component {
+    width: 40%;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, .25);
+    padding: 15px;
+    border-radius: 10px;
+}
+    .Welcome-Component h2 {
+        margin: 0;
+        margin-bottom: 20px;
+    }
+
+button {
+    background-color: aquamarine;
+    border-style: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.Signup-Component {
+    width: 40%;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, .25);
+    padding: 15px;
+    border-radius: 10px;
+}
+    .Signup-Component form {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+        .Signup-Component form li {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+.Signin-Component {
+    width: 40%;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, .25);
+    padding: 15px;
+    border-radius: 10px;
+}
+    .Signin-Component form {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+        .Signin-Component form li {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+.Home-Component {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+    .UserInfo-Component {
+        width: 20%;
+        height: 10%;
+        margin-top: 20%;
+        margin-left: 25%;
+        margin-right: auto;
+        background-color: rgba(0, 0, 0, .25);
+        padding: 15px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+        .UserInfo-Component p {
+            text-align: start;
+            margin: 5px 0px 5px 15px;
+        }
+
+    .UserList-Component {
+        width: 20%;
+        height: 10%;
+        margin-top: 2%;
+        margin-left: auto;
+        margin-right: 25%;
+        background-color: rgba(0, 0, 0, .10);
+        padding: 15px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+        .ListItem-Component {
+            text-align: end;
+            margin: 5px 0px 5px 15px;
+        }
