@@ -27,8 +27,12 @@ class User {
     }
 
     /* Verify user login */
-    static async authenticate(id, password) {
-        let user = users[id];
+    static async authenticate(email, password) {
+        let user = user.find((u) => {
+            return u.email === email
+        })
+
+        let user = users[email];
         if (!user) throw new NotFoundError();
 
         const isValid = await bcrypt.compare(password, user.password);
@@ -36,7 +40,7 @@ class User {
             return user;
         }
 
-        throw new UnauthorizedError("Invalid id/password");
+        throw new UnauthorizedError("Invalid email/password");
     }
 
     /* Get a specific user by id */
