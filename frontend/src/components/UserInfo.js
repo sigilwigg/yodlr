@@ -5,7 +5,7 @@ function UserInfo({ user }) {
         <div className="UserInfo-Component">
             <h3>{user.firstName} {user.lastName}</h3>
             <p>email: {user.email}</p>
-            <p>admin: {user.isAdmin == true ? 'true' : 'false'}</p>
+            <p>admin: {user.isAdmin === true ? 'true' : 'false'}</p>
             <p>status: {user.state}</p>
         </div>
     )

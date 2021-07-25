@@ -21,8 +21,8 @@ function Signup() {
         evt.preventDefault();
         try {
             let res = await dispatch(SignUp(formData));
-            if (res == 'registration failure') throw new Error(res);
-            if (res == 'registration success') history.push('/home');
+            if (res === 'registration failure') throw new Error(res);
+            if (res === 'registration success') history.push('/home');
         } catch (err) {
             alert(err);
             console.log(err.stack);

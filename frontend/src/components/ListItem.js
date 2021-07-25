@@ -5,7 +5,7 @@ function ListItem({ user, changeStatus, changeIsAdmin }) {
         <div className="ListItem-Component">
             <h5>{user.firstName} {user.lastName}</h5>
             <p>email: {user.email}</p>
-            <p>admin: {user.isAdmin == true ? 'true ' : 'false '}
+            <p>admin: {user.isAdmin === true ? 'true ' : 'false '}
                 <button onClick={() => changeIsAdmin(user.id, user)}>Change</button>
             </p>
             <p>status: {user.state + ' '}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { LogIn } from '../actions/profileActionCreators';
@@ -9,18 +9,20 @@ function Signin() {
     const history = useHistory();
     const dispatch = useDispatch();
     const [formData, handleChange] = useFormFields({
-        id: '',
+        email: '',
         password: ''
     })
 
-    if (profile.isLoggedIn) history.push('/home');
+    useEffect(() => {
+        if (profile.isLoggedIn) history.push('/home');
+    })
 
     async function handleSubmit(evt) {
         evt.preventDefault();
         try {
             let res = await dispatch(LogIn(formData));
-            if (res == 'login failure') throw new Error(res);
-            if (res == 'login success') history.push('/home');
+            if (res === 'login failure') throw new Error(res);
+            if (res === 'login success') history.push('/home');
         } catch (err) {
             alert(err);
             console.log(err.stack);
@@ -31,12 +33,12 @@ function Signin() {
         <div className="Signin-Component">
             <form onSubmit={handleSubmit}>
                 <li>
-                    <label htmlFor='id'>Id:</label>
+                    <label htmlFor='email'>Email:</label>
                     <input
-                        id='id'
+                        id='email'
                         type='text'
-                        name='id'
-                        value={formData.id}
+                        name='email'
+                        value={formData.email}
                         onChange={handleChange}
                     />
                 </li>

@@ -8,12 +8,12 @@ const { SECRET_KEY } = require("../config.js");
 function createToken(user) {
     console.assert(user.isAdmin !== undefined,
         "createToken passed user without isAdmin property");
-
+    console.log(user);
     let payload = {
-        username: user.username,
+        email: user.email,
         isAdmin: user.isAdmin || false,
     };
-
+    console.log(payload);
     return jwt.sign(payload, SECRET_KEY);
 }
 

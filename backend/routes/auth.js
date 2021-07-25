@@ -43,10 +43,11 @@ router.post('/login', async function (req, res, next) {
         }
 
         // login with validated data
-        let { id, password } = req.body;
-        let user = await User.authenticate(id, password);
+        let { email, password } = req.body;
+        let user = await User.authenticate(email, password);
+        let id = user.id;
         let token = createToken(user);
-        return res.json({ token })
+        return res.json({ token, id })
     } catch (err) {
         return next(err);
     }

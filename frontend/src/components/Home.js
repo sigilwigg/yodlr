@@ -9,12 +9,12 @@ function Home() {
     const dispatch = useDispatch();
 
     async function changeStatus(id, user) {
-        user.state = user.state == 'active' ? 'pending' : 'active';
+        user.state = user.state === 'active' ? 'pending' : 'active';
         await dispatch(ChangeUserData(id, user, profile.id));
     }
 
     async function changeIsAdmin(id, user) {
-        user.isAdmin = user.isAdmin == false ? true : false;
+        user.isAdmin = user.isAdmin === false ? true : false;
         await dispatch(ChangeUserData(id, user, profile.id));
     }
 
@@ -22,7 +22,7 @@ function Home() {
         <div className="Home-Component">
             <UserInfo user={profile} />
             {
-                profile.isAdmin == true ?
+                profile.isAdmin === true ?
                     <UsersList
                         list={profile.usersList}
                         changeStatus={changeStatus}

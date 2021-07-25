@@ -6,9 +6,9 @@ class YodlrApi {
     static token;
     static BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
-    static async login(id, password) {
+    static async login(email, password) {
         try {
-            let res = await axios.post(`${YodlrApi.BASE_URL}/auth/login`, { id, password });
+            let res = await axios.post(`${YodlrApi.BASE_URL}/auth/login`, { email, password });
             return res.data;
         } catch (err) {
             console.log(err);

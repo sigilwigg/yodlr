@@ -3,15 +3,14 @@ import YodlrApi from '../api_helpers/yodlr_api';
 
 
 // ----- [///// ACTION CREATORS /////] -----
-export function LogIn({ id, password }) {
+export function LogIn({ email, password }) {
     return async function (dispatch) {
         try {
-            let idInt = parseInt(id);
-            let { token } = await YodlrApi.login(idInt, password);
+            let { token, id } = await YodlrApi.login(email, password);
             if (!token) throw new Error();
             YodlrApi.token = token;
             await dispatch(setProfileLoggedIn());
-            await dispatch(UpdateProfileData(idInt));
+            await dispatch(UpdateProfileData(id));
             return ('login success');
         } catch (err) {
             console.log(err.stack);
@@ -56,7 +55,7 @@ export function UpdateProfileData(id) {
         try {
             let user = await YodlrApi.getUser(id);
             let usersList = [];
-            if (user.isAdmin == true) {
+            if (user.isAdmin === true) {
                 usersList = await YodlrApi.getAllUsers();
             }
             await dispatch(setProfileData(user, usersList));

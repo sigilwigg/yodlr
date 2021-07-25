@@ -28,11 +28,14 @@ class User {
 
     /* Verify user login */
     static async authenticate(email, password) {
-        let user = user.find((u) => {
-            return u.email === email
-        })
+        let user
+        for (let key in users) {
+            if (users[key].email === email) {
+                user = users[key];
+                break
+            }
+        }
 
-        let user = users[email];
         if (!user) throw new NotFoundError();
 
         const isValid = await bcrypt.compare(password, user.password);
