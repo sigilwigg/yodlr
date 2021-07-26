@@ -20,10 +20,11 @@ This application will use:
 
 ### Noteable Accomplishments
 
-* Streamlined registration and authentication code that is super clean and easy to read. Below are some excerpts from a few files.
+Streamlined registration and authentication code that is super clean and easy to read. Below are some excerpts from a few files.
 <details>
     <summary>code highlights/excerpts</summary>
         Singin.js (signin component, form submission)
+
         ```
             async function handleSubmit(evt) {
                 evt.preventDefault();
@@ -37,9 +38,10 @@ This application will use:
                 }
             }
         ```
+
         profileActionCreators.js (front-end signin handler functionality)
+        
         ```
-            // ----- [///// ACTION CREATORS /////] -----
             export function LogIn({ email, password }) {
                 return async function (dispatch) {
                     try {
@@ -73,7 +75,6 @@ This application will use:
                 }
             }
 
-            // ----- [///// DISPATCH HANDLERS /////] -----
             export function setProfileLoggedIn() {
                 return {
                     type: 'LOGIN'
@@ -101,7 +102,9 @@ This application will use:
                 }
             }
         ```
+
         yodlr_api.js (API helper for backedn interaction)
+        
         ```
             // ----- [///// CLASS /////] -----
             class YodlrApi {
