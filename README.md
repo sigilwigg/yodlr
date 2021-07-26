@@ -22,7 +22,7 @@ This application will use:
 
 * Streamlined registration and authentication code that is super clean and easy to read. Below are some excerpts from a few files.
 <details>
-    <summary>code highlights/excerpts<summary>
+    <summary>code highlights/excerpts</summary>
         Singin.js (signin component, form submission)
         ```
             async function handleSubmit(evt) {
@@ -228,11 +228,11 @@ This application will use:
             }
         ```
 
-<details>
+</details>
 
 * Awesome efficient back end and front end error handling!
 <details>
-    <summary>backend error handling code highlights/excerpts<summary>
+    <summary>backend error handling code highlights/excerpts</summary>
         expressError.js (streamlined error class extension)
         ```
             /** ExpressError extends normal JS error so we can
@@ -277,10 +277,10 @@ This application will use:
                 }
             }
         ```
-<details>
+</details>
 
 <details>
-    <summary>frontend error handling code highlights/excerpts<summary>
+    <summary>frontend error handling code highlights/excerpts</summary>
         try-catch and log error stack from any attempts to interact with backend:
         ```
             async function logout() {
@@ -294,4 +294,4 @@ This application will use:
                 }
             }
         ```
-<details>
+</details>
