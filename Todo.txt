@@ -1,5 +1,0 @@
-DONE 1) switch login id requirement to email. (ie. make it ask for email & password instead of id & password)
-
-DONE 2) add logout button to user home page
-
-3) newly signed up users that have just been redirected to the home page should be able to see their email and name listed (currently blank)
