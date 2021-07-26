@@ -247,7 +247,7 @@ Streamlined registration and authentication code that is super clean and easy to
 
 </details>
 
-* Awesome efficient back end and front end error handling!
+Awesome efficient back end and front end error handling!
 <details>
     <summary>backend error handling code highlights/excerpts</summary>
         expressError.js (streamlined error class extension)
