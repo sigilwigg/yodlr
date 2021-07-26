@@ -37,10 +37,11 @@ export function LogOut() {
 export function SignUp(registerData) {
     return async function (dispatch) {
         try {
-            let { token } = await YodlrApi.register(registerData);
+            let { token, id } = await YodlrApi.register(registerData);
             if (!token) throw new Error();
             YodlrApi.token = token;
             await dispatch(setProfileLoggedIn());
+            await dispatch(UpdateProfileData(id));
             return ('registration success');
         } catch (err) {
             console.log(err.stack);

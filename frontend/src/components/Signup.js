@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router';
 import { SignUp } from '../actions/profileActionCreators';
@@ -15,7 +15,9 @@ function Signup() {
         email: ''
     })
 
-    if (profile.isLoggedIn) history.push('/home');
+    useEffect(() => {
+        if (profile.isLoggedIn) history.push('/home');
+    })
 
     async function handleSubmit(evt) {
         evt.preventDefault();

@@ -25,8 +25,9 @@ router.post('/register', async function (req, res, next) {
         // register with validated data
         let newUserData = req.body;
         let newUser = await User.register(newUserData);
+        let id = newUser.id;
         let token = createToken(newUser);
-        return res.json({ token })
+        return res.json({ token, id })
     } catch (err) {
         return next(err);
     }
