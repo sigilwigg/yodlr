@@ -40,8 +40,9 @@ Streamlined registration and authentication code that is super clean and easy to
         ```
 
         profileActionCreators.js (front-end signin handler functionality)
-        
+
         ```
+            // ----- [///// ACTION CREATORS /////] -----
             export function LogIn({ email, password }) {
                 return async function (dispatch) {
                     try {
@@ -75,6 +76,7 @@ Streamlined registration and authentication code that is super clean and easy to
                 }
             }
 
+            // ----- [///// DISPATCH HANDLERS /////] -----
             export function setProfileLoggedIn() {
                 return {
                     type: 'LOGIN'
@@ -104,7 +106,7 @@ Streamlined registration and authentication code that is super clean and easy to
         ```
 
         yodlr_api.js (API helper for backedn interaction)
-        
+
         ```
             // ----- [///// CLASS /////] -----
             class YodlrApi {
@@ -127,7 +129,9 @@ Streamlined registration and authentication code that is super clean and easy to
                 }
             }
         ```
+
         auth.js (backend express authentication routes for login proccess)
+
         ```
             // ----- [///// ROUTES /////] -----
             /* User login */
@@ -151,7 +155,9 @@ Streamlined registration and authentication code that is super clean and easy to
                 }
             });
         ```
+
         users.js (backend route for fetching user data after authentication)
+
         ```
             // ----- [///// ROUTES /////] -----
             /* Get a specific user by id */
@@ -164,7 +170,9 @@ Streamlined registration and authentication code that is super clean and easy to
                 }
             });
         ```
+
         user.js (backend model for authentication and fetching data from our fake json database)
+
         ```
             // ----- [///// CLASS /////] -----
             class User {
@@ -195,7 +203,9 @@ Streamlined registration and authentication code that is super clean and easy to
                     return users[id];
                 }
         ```
+
         tokens.js (backend tokenization using JWT)
+
         ```
             // ----- [///// MAIN /////] -----
             /** Create and sign a JWT token */
@@ -209,7 +219,9 @@ Streamlined registration and authentication code that is super clean and easy to
                 return jwt.sign(payload, SECRET_KEY);
             }
         ```
+
         ProtectedRoute.js (react-redux route protection component for increased security)
+
         ```
             const ProtectedRoute = (props) => {
                 const profile = useSelector(store => store.profile);
@@ -217,7 +229,9 @@ Streamlined registration and authentication code that is super clean and easy to
                 return (profile.isLoggedIn ? props.children : <Redirect to={{ pathname: '/' }} />)
             }
         ```
+
         Routes.js (ProtectedRoute in action)
+
         ```
             function Routes() {
                 return (
@@ -237,6 +251,7 @@ Streamlined registration and authentication code that is super clean and easy to
 <details>
     <summary>backend error handling code highlights/excerpts</summary>
         expressError.js (streamlined error class extension)
+
         ```
             /** ExpressError extends normal JS error so we can
             *  add a status when we make an instance of it.
@@ -280,11 +295,13 @@ Streamlined registration and authentication code that is super clean and easy to
                 }
             }
         ```
+
 </details>
 
 <details>
     <summary>frontend error handling code highlights/excerpts</summary>
         try-catch and log error stack from any attempts to interact with backend:
+
         ```
             async function logout() {
                 try {
@@ -297,4 +314,5 @@ Streamlined registration and authentication code that is super clean and easy to
                 }
             }
         ```
+
 </details>
